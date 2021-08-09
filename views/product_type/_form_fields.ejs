@@ -1,0 +1,17 @@
+<div class="mb-3">
+    <label for="name" class="form-label">Tên loại trà</label>
+    <!-- <input type="text" required value="<%= product_type.name %>" name="name"><br> -->
+    <textarea name="name" class="form-control" id="name" required placeholder="Nhập tên loại trà"><%= product_type.name %></textarea>
+</div>
+
+<!-- <div class="mb-3">
+    <label for="user_id" class="form-label">Tên user_id</label> -->
+    <!-- <input type="text" required value="<%= product_type.name %>" name="name"><br> -->
+    <!-- <textarea name="user_id" class="form-control" id="user_id" required placeholder="Nhập tên user_id"></textarea>
+</div> -->
+<h5><%= product_type.user_id %></h5>
+
+<!--  -->
+<button type="submit" class="btn btn-success">Lưu</button>
+<a href="/product_type" class="btn btn-secondary">Huỷ</a>
+

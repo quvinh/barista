@@ -1,0 +1,93 @@
+<!-- user_id -->
+<!-- <div class="col-12">
+  <label for="user_id" class="form-name">Tên user_id</label>
+  <textarea name="user_id" id="user_id" class="form-control" placeholder="error" required></textarea>
+</div> -->
+
+<!-- product_type_id -->
+<div class="col-12">
+    <label for="product_type_id" class="form-name">Tên product_type_id</label><br>
+    <!-- <textarea name="product_type_id" id="product_type_id" class="form-control" placeholder="error" required><%= product.product_type_id %></textarea> -->
+    <select class="form-select" name="product_type_id" id="product_type_id" required>
+      <option value="">Chọn loại trà</option>
+      <% product_type.forEach( product_type => { %>
+        <option value="<%= product_type._id %>"><%= product_type.name %></option>
+      <% }) %>    
+    </select>    
+  </div>
+
+<!-- name -->
+<div class="col-12">
+    <label for="name" class="form-name">Tên đồ uống</label>
+    <textarea name="name" id="name" class="form-control" placeholder="Nhập tên đồ uống" required><%= product.name %></textarea>
+</div>
+
+<!-- milk -->
+<div class="col-md-6">
+    <label for="milk_size_m" class="form-label">SỮA: size M</label>
+    <textarea name="milk_size_m" id="milk_size_m" class="form-control" placeholder="Nhập khối lượng"><%= product.milk.milk_size_m %></textarea>
+</div>
+  <div class="col-md-6">
+    <label for="milk_size_l" class="form-label">size L</label>
+    <textarea name="milk_size_l" id="milk_size_l" class="form-control" placeholder="Nhập khối lượng"><%= product.milk.milk_size_l %></textarea>
+</div>
+
+<!-- milk powder -->
+<div class="col-md-6">
+    <label for="milk_powder_size_m" class="form-label">BỘT SỮA: size M</label>
+    <textarea name="milk_powder_size_m" id="milk_powder_size_m" class="form-control" placeholder="Nhập khối lượng"><%= product.milk_powder.milk_powder_size_m %></textarea>
+</div>
+  <div class="col-md-6">
+    <label for="milk_powder_size_l" class="form-label">size L</label>
+    <textarea name="milk_powder_size_l" id="milk_powder_size_l" class="form-control" placeholder="Nhập khối lượng"><%= product.milk_powder.milk_powder_size_l %></textarea>
+</div>
+
+<!-- sugar -->
+<div class="col-md-6">
+    <label for="sugar_size_m" class="form-label">ĐƯỜNG: size M</label>
+    <textarea name="sugar_size_m" id="sugar_size_m" class="form-control" placeholder="Nhập khối lượng"><%= product.sugar.sugar_size_m %></textarea>
+</div>
+  <div class="col-md-6">
+    <label for="sugar_size_l" class="form-label">size L</label>
+    <textarea name="sugar_size_l" id="sugar_size_l" class="form-control" placeholder="Nhập khối lượng"><%= product.sugar.sugar_size_l %></textarea>
+</div>
+
+<!-- more -->
+<div class="col-md-6">
+    <label for="more_name" class="form-label">Tên chất tự nhiên</label>
+    <textarea name="more_name" id="more_name" class="form-control" placeholder="Nhập tên"><%= product.more.more_name %></textarea>
+  </div>
+  <div class="col-md-2">
+    <label for="more_size_m" class="form-label">MORE <%= product.more.more_name %>: size M</label>
+    <textarea name="more_size_m" id="more_size_m" class="form-control" placeholder="Nhập khối lượng"><%= product.more.more_size_m %></textarea>
+  </div>
+  <div class="col-md-2">
+    <label for="more_size_l" class="form-label">size L</label>
+    <textarea name="more_size_l" id="more_size_l" class="form-control" placeholder="Nhập khối lượng"><%= product.more.more_size_l %></textarea>
+  </div>
+
+<!-- hot water -->
+<div class="col-md-6">
+    <label for="hot_water_size_m" class="form-label">NƯỚC NÓNG: size M</label>
+    <textarea name="hot_water_size_m" id="hot_water_size_m" class="form-control" placeholder="Nhập khối lượng"><%= product.hot_water.hot_water_size_m %></textarea>
+</div>
+  <div class="col-md-6">
+    <label for="hot_water_size_l" class="form-label">size L</label>
+    <textarea name="hot_water_size_l" id="hot_water_size_l" class="form-control" placeholder="Nhập khối lượng"><%= product.hot_water.hot_water_size_l %></textarea>
+</div>
+
+<!-- tea -->
+<div class="col-md-6">
+    <label for="tea_size_m" class="form-label">TRÀ: size M</label>
+    <textarea name="tea_size_m" id="tea_size_m" class="form-control" placeholder="Nhập khối lượng"><%= product.tea.tea_size_m %></textarea>
+</div>
+  <div class="col-md-6">
+    <label for="tea_size_l" class="form-label">size L</label>
+    <textarea name="tea_size_l" id="tea_size_l" class="form-control" placeholder="Nhập khối lượng"><%= product.tea.tea_size_l %></textarea>
+</div>
+
+<!--  -->
+<div class="mb-3">
+    <button type="submit" value="Submit" class="btn btn-success">Lưu</button>
+    <a href="/product" class="btn btn-secondary">Huỷ</a>
+</div>
