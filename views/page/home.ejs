@@ -26,6 +26,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="/product_type">Product type</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/tutorial">demo_tutorial</a>
+              </li>
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -40,9 +43,9 @@
         <div class="position-absolute top-0 start-0"><h1> Home Page</h1></div>
         <div class="position-absolute top-0 end-0">
           <% if(user == null){ %>
-            <h5>Require login</h5>
+            <button type="button" class="btn btn-warning">Require login</button>
           <% } else { %>
-            <h2> <%= user.username %></h2>
+            <button type="button" class="btn btn-info"><%= user.username %></button>
           <% } %>
         </div>
       </div>
