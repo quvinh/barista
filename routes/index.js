@@ -287,4 +287,12 @@ router.delete('/product_type/del/:id', async(req, res) => {
     res.redirect('/product_type')
 })
 
+//====================================================================
+//                              TUTORIAL
+//====================================================================
+router.get('/tutorial', isLoggedIn, (req, res) => {
+    res.render('../views/page/tutorial.ejs')
+})
+
+
 module.exports = router

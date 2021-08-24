@@ -19,6 +19,8 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))
 
+app.use(express.static("src"))//go inside the directory
+
 // for authentication---
 app.use(require('express-session')({
     secret:"Zinh dep troai",
