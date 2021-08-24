@@ -288,13 +288,10 @@ router.delete('/product_type/del/:id', async(req, res) => {
 })
 
 //====================================================================
-//                              PAGE TUTORIAL
+//                              TUTORIAL
 //====================================================================
-
 router.get('/tutorial', isLoggedIn, (req, res) => {
-    Product.find({user_id: req.user._id}, function(e, product){
-        res.render('../views/page/tutorial.ejs', {product: product});
-    })
+    res.render('../views/page/tutorial.ejs')
 })
 
 
