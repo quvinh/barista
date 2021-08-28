@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutorial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.2/dragula.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,6 +17,11 @@
         <div class="wrapper">
          <div id="menubar">
            <ul id="menulist">
+               <li class="menufirst">Thành phần</li>
+               <li class="menuitem">Sua</li>
+               <li class="menuitem">Nuoc</li>
+               <li class="menuitem">Sua</li>
+               <li class="menuitem">Nuoc</li>
                <li class="menuitem">Sua</li>
                <li class="menuitem">Nuoc</li>
                <li class="menuitem">Sua</li>
@@ -23,21 +29,28 @@
            </ul>
           </div>
           <div id="main">
-            <h1>Same Page Different Stylesheets</h1>
+            <h3>Lựa chọn nhiên liệu</h3>
+            <div id="cuptype">
+              <ul id="listcups">
+                <li class="cup">Size M: 500ml</li>
+                <li class="cup">Size L: 700ml</li>
+              </ul>
+            </div>
+            <div id="board">
+
+            </div>
             <img src="image/demo.gif" alt="demo">
-             <h2>No Styles</h2>
-            <p>This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:<br><a href="#" onclick="noStyles();return false">No Stylesheet</a>.</p>
+            <p>Learn how to create a draggable HTML element with JavaScript and CSS.Learn how to create a draggable HTML element with JavaScript and CSS.Learn how to create a draggable HTML element with JavaScript and CSS.</p>
          </div>
           <div id="sidebar">
-            <h3>Side-Bar</h3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <h3>Thông tin</h3>
           </div>
         </div>  
-        
-        
         <div id="bottom">
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
         </div>
-    </div>      
+    </div>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.2/dragula.js"></script>
+    <script src="js/script.js"></script>  
 </body>
 </html>

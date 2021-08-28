@@ -1,0 +1,39 @@
+
+section{
+    width: 140px;
+    height: 175px;
+    float: left;
+    margin: 25px;
+    border-radius: 7px;
+    position: relative;
+}
+
+.dragTo{
+    border: 1px dashed rgb(114, 147, 255);
+  }
+
+  .dragTo>p{
+    color: rgb(50, 156, 255);
+    opacity: .5;
+    position: absolute;
+    z-index: -1;
+    top: 66px;
+    margin: 0 20px;
+  }
+  
+  .gu-mirror{
+    transform: rotate(-15deg);
+    box-shadow: -10px -10px 5px 5px rgba(0, 0, 0, .75);
+    position: relative;
+    top: -15px;
+    z-index: 5;
+    opacity: 1;
+  }
+  
+  .gu-transit{
+    opacity: 0;
+  }
+  
+  .noBorder {
+    border: none;
+  }
