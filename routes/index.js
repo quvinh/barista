@@ -7,6 +7,9 @@ const {Product_type} = require('../models/product_type')
 const User = require('../models/user')
 const passport = require('passport')
 
+const mongodbClient = require('../config/mongodbClient')
+const { emit } = require('../models/user')
+
 //----------------------------
 router.get('/home', async (req, res) => {
     res.render('../views/page/home.ejs', {user: req.user})
@@ -290,8 +293,14 @@ router.delete('/product_type/del/:id', async(req, res) => {
 //====================================================================
 //                              TUTORIAL
 //====================================================================
-router.get('/tutorial', isLoggedIn, (req, res) => {
-    res.render('../views/page/tutorial.ejs')
+router.get('/tutorial', isLoggedIn, async(req, res) => {
+    // const col = cb => {
+    //     Product.listIndexes().toArray(cb);
+    // }
+    // console.log(col);
+
+    const map = await Product.find({user_id: req.user._id});
+    res.render('../views/page/tutorial.ejs', { map: map });
 })
 
 
