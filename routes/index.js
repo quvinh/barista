@@ -299,8 +299,8 @@ router.get('/tutorial', isLoggedIn, async(req, res) => {
     // }
     // console.log(col);
 
-    const map = await Product.find({user_id: req.user._id});
-    res.render('../views/page/tutorial.ejs', { map: map });
+    const moreName = await Product.find({user_id: req.user._id});
+    res.render('../views/page/tutorial.ejs', { moreName: moreName });
 })
 
 

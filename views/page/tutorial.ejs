@@ -25,23 +25,27 @@
       <div id="menubar">
         <ul id="menulist">
           <li class="menufirst">Thành phần</li>
-          <li class="menuitem" id="milk" onclick="reply_click(this.id)" data-bs-toggle="modal"
+          <li class="menuitem" id="milk" onclick="reply_click(this.id); check_src_image()" data-bs-toggle="modal"
             data-bs-target="#staticBackdrop">Sữa</li>
-          <li class="menuitem" id="milk_powder" onclick="reply_click(this.id)" data-bs-toggle="modal"
+          <li class="menuitem" id="milk_powder" onclick="reply_click(this.id); check_src_image()" data-bs-toggle="modal"
             data-bs-target="#staticBackdrop">Sữa bột</li>
-          <li class="menuitem" id="sugar" onclick="reply_click(this.id)" data-bs-toggle="modal"
+          <li class="menuitem" id="sugar" onclick="reply_click(this.id); check_src_image()" data-bs-toggle="modal"
             data-bs-target="#staticBackdrop">Đường</li>
           <div class="dropend">
             <li class="menuitem" data-bs-toggle="dropdown" aria-expanded="false">More</li>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <% moreName.forEach(name=> { %>
+                <li class="dropdown-item" id="<%=name.more.more_name%>"
+                  onclick="reply_click(this.id); check_src_image()" data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop">
+                  <%=name.more.more_name%>
+                </li>
+                <% }) %>
             </ul>
           </div>
-          <li class="menuitem" id="hot_water" onclick="reply_click(this.id)" data-bs-toggle="modal"
+          <li class="menuitem" id="hot_water" onclick="reply_click(this.id); check_src_image()" data-bs-toggle="modal"
             data-bs-target="#staticBackdrop">Nước ấm</li>
-          <li class="menuitem" id="tea" onclick="reply_click(this.id)" data-bs-toggle="modal"
+          <li class="menuitem" id="tea" onclick="reply_click(this.id); check_src_image()" data-bs-toggle="modal"
             data-bs-target="#staticBackdrop">Trà</li>
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -53,11 +57,17 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p id="modal-name">okok</p>
+                  <p id="modal-name">Chọn dung tích <span id="ele_name"></span></p>
+                  <!-- <input type="range" name="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);">
+                  <input type="text" id="textInput" value=""> -->
+                  <!-- <label for="customRange1" class="form-label">Example range</label> -->
+                  <input type="range" class="form-range" id="customRange1" min="0" max="250" value="0" step="5">
+                  <p>Value: <span id="showvalue"></span> <span id="capacity"></span></p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Ok</button>
+                  <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                  <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="addboard(document.getElementById('ele_name').textContent)">Ok</button> -->
+                  <li class="btn btn-primary" data-bs-dismiss="modal" onclick="addboard()">OK</li>
                 </div>
               </div>
             </div>
@@ -66,16 +76,18 @@
         </ul>
       </div>
       <div id="main">
-        <h3>Lựa chọn nhiên liệu</h3>
+        <!-- <h3>Lựa chọn nhiên liệu</h3> -->
         <div id="cuptype">
           <ul id="listcups">
-            <li class="cup" onclick="document.getElementById('myCup').src='/image/plastic-cup.png'">Size M: 500ml</li>
-            <li class="cup" onclick="document.getElementById('myCup').src='/image/plastic-cup700.png'">Size L: 700ml</li>
+            <!-- <li class="cup" id="btnM" onclick="change_cup(0)">Size M: 500ml</li>
+            <li class="cup" id="btnL" onclick="change_cup(1)">Size L: 700ml
+            </li> -->
+            <button class="cup" id="btnM" onclick="change_cup(0)">Size M: 500ml</button>
+            <button class="cup" id="btnL" onclick="change_cup(1)">Size L: 700ml</button>
           </ul>
         </div>
         <div id="board">
           <img id="myCup" width="45%" height="80%">
-
         </div>
         <img src="image/demo.gif" alt="demo">
         <p>Learn how to create a draggable HTML element with JavaScript and CSS.Learn how to create a draggable HTML
@@ -83,6 +95,7 @@
       </div>
       <div id="sidebar">
         <h3>Thông tin</h3>
+        <div id="ele_selected"></div>
       </div>
     </div>
     <div id="bottom">
@@ -93,26 +106,18 @@
       dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
     </div>
   </div>
-  <script type="text/javascript">
-    function reply_click(clicked_id) {
-      var str;
-      if (clicked_id == "milk") {
-        str = "Sữa";
-      } else if (clicked_id == "milk_powder") {
-        str = "Sữa bột";
-      } else if (clicked_id == "sugar") {
-        str = "Đường";
-      } else if (clicked_id == "hot_water") {
-        str = "Nước nóng";
-      } else if (clicked_id == "tea") {
-        str = "Trà";
-      }
-      // alert(clicked_id);
-      document.getElementById("staticBackdropLabel").innerHTML = str;
+  <script type="text/javascript" src="/js/script_tutorial.js"></script>
+  <script>
+    var slider = document.getElementById('customRange1');
+    var output = document.getElementById('showvalue');
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+      output.innerHTML = this.value;
     }
   </script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.2/dragula.js"></script> -->
-  <script src="js/script.js"></script>
+  <!-- <script src="js/script.js"></script> -->
 </body>
 
 </html>
