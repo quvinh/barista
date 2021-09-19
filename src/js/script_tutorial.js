@@ -63,12 +63,9 @@ function addboard() {
     if (spans.length > 0) {
         for (let i = 0; i < spans.length; i++) {
             if (ele == spans[i].textContent) {
-                alert('i:' + i);
-                var lis = document.getElementById('ele_selected').getElementsByTagName('li');
+                // var lis = document.getElementById('ele_selected').getElementsByTagName('li');
                 var new_value = parseFloat(value) + parseFloat(ps[i].textContent);
                 ps[i].textContent = new_value;
-                alert('new_value:' + new_value + '\nvalue changed:' + ps[i].textContent);
-                alert('lis:' + lis[i].innerHTML);
                 return;
             }
         }
