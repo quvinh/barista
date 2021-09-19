@@ -15,7 +15,7 @@ const MongoClient = require("mongodb").MongoClient;
 const url = process.env.MONGO_URI;
 
 //----------------------------
-router.get('/home', async (req, res) => {
+router.get('/', async (req, res) => {
     res.render('../views/page/home.ejs', {user: req.user})
 })
 //----------------------------
