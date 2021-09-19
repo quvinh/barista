@@ -19,8 +19,8 @@ body {
 }
 
 #top {
-    background-color: #5582ff;
-    color: #ffffff;
+    background-color: #fddd72;
+    color: #6f00ff;
     padding: 15px;
 }
 
@@ -94,6 +94,16 @@ body {
 #top h1, #top p, #menulist {
     margin: 0;
     padding: 0;
+}
+
+#ele_selected {
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+}
+
+#ele_selected span, #ele_selected p {
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .menuitem {

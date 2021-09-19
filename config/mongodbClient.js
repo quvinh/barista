@@ -1,6 +1,18 @@
 const MongoClient = require("mongodb").MongoClient;
 
 const url = process.env.MONGO_URI;
+
+const mongodbClient = MongoClient.connect(url, function (err, db) {
+    if (err) throw err;
+    const dbo = db.db("db_barista");
+    dbo.collection("products").find({}).toArray(function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    })
+})
+module.exports = mongodbClient
+
 // const connectDB = require('./config/db')
 // const mongodbClient = MongoClient.connect(url, function(e, db) {
 //     if(e) throw e;

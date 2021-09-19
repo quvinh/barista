@@ -7,8 +7,12 @@ const {Product_type} = require('../models/product_type')
 const User = require('../models/user')
 const passport = require('passport')
 
-const mongodbClient = require('../config/mongodbClient')
-const { emit } = require('../models/user')
+// const mongodbClient = require('../config/mongodbClient')
+// const { emit } = require('../models/user')
+const user = require('../models/user')
+
+const MongoClient = require("mongodb").MongoClient;
+const url = process.env.MONGO_URI;
 
 //----------------------------
 router.get('/home', async (req, res) => {
@@ -298,9 +302,26 @@ router.get('/tutorial', isLoggedIn, async(req, res) => {
     //     Product.listIndexes().toArray(cb);
     // }
     // console.log(col);
-
-    const moreName = await Product.find({user_id: req.user._id});
-    res.render('../views/page/tutorial.ejs', { moreName: moreName });
+    
+    // const moreName = await Product.find({user_id: req.user._id});
+    // res.render('../views/page/tutorial.ejs', { moreName: moreName, user: req.user });
+    Product.find({user_id: req.user._id}, function(e, moreName){
+        MongoClient.connect(url, function (err, db) {
+            if (err) throw err;
+            const dbo = db.db("db_barista");
+            const ID = new String(req.user._id);
+            const query = {user_id: ID.valueOf()};
+            console.log(query);
+            dbo.collection("products").find(query).toArray(function (err, result) {
+                if (err) throw err;
+                Product.find({user_id: req.user._id}).countDocuments().then((countDoc) => {
+                    console.log(result);
+                    res.render('../views/page/tutorial.ejs', { moreName: moreName, result: result, countDoc: countDoc});
+                })
+                db.close();
+            })
+        })
+    })
 })
 
 
