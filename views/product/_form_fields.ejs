@@ -6,7 +6,7 @@
 
 <!-- product_type_id -->
 <div class="col-12">
-  <label for="product_type_id" class="form-name">Tên product_type_id</label><br>
+  <label for="product_type_id" class="form-name">Tên loại <img src="/image/tea.png" alt="tea"></label><br>
   <!-- <textarea name="product_type_id" id="product_type_id" class="form-control" placeholder="error" required><%= product.product_type_id %></textarea> -->
   <select class="form-select" name="product_type_id" id="product_type_id" required>
     <option value="">Chọn loại trà</option>
@@ -20,7 +20,7 @@
 
 <!-- name -->
 <div class="col-12">
-  <label for="name" class="form-name">Tên đồ uống</label>
+  <label for="name" class="form-name">Tên đồ uống <img src="/image/tea.png" alt="tea"></label>
   <textarea name="name" id="name" class="form-control" placeholder="Nhập tên đồ uống"
     required><%= product.name %></textarea>
 </div>
@@ -68,7 +68,7 @@
     placeholder="Nhập tên"><%= product.more.more_name %></textarea>
 </div>
 <div class="col-md-2">
-  <label for="more_size_m" class="form-label">MORE <%= product.more.more_name %>: size M</label>
+  <label for="more_size_m" class="form-label">MORE: size M</label>
   <textarea name="more_size_m" id="more_size_m" class="form-control"
     placeholder="Nhập khối lượng"><%= product.more.more_size_m %></textarea>
 </div>
